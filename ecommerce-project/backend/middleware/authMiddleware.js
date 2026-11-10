@@ -1,8 +1,5 @@
 const jwt = require("jsonwebtoken");
 
-// This middleware checks the Authorization header for a valid JWT.
-// If valid, it attaches the decoded user info to req.user and calls next().
-// If missing/invalid, it stops the request with a 401 response.
 function protect(req, res, next) {
   const authHeader = req.headers.authorization;
 

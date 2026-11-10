@@ -12,8 +12,7 @@ function Home() {
       try {
         const response = await axios.get("http://localhost:5000/api/products");
 
-        // MongoDB returns "_id" - we map it to "id" so the rest of the
-        // app (CartContext, ProductCard) can keep using product.id.
+        
         const formatted = response.data.map((product) => ({
           id: product._id,
           name: product.name,

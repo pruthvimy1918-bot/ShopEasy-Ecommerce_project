@@ -6,7 +6,7 @@ const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// Helper: create a signed JWT for a given user
+
 function generateToken(user) {
   return jwt.sign(
     { id: user._id, name: user.name, email: user.email },
@@ -15,8 +15,6 @@ function generateToken(user) {
   );
 }
 
-// @route   POST /api/users/register
-// @desc    Create a new user with a hashed password
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -47,8 +45,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// @route   POST /api/users/login
-// @desc    Verify credentials and return a JWT
+
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -63,7 +60,6 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // Compare the plain-text password the user typed against the stored hash.
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
@@ -86,8 +82,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// @route   GET /api/users/profile
-// @desc    Example of a protected route - only works with a valid token
 router.get("/profile", protect, async (req, res) => {
   res.status(200).json({ user: req.user });
 });

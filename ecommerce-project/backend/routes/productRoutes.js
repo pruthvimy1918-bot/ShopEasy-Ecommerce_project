@@ -3,8 +3,6 @@ const Product = require("../models/Product");
 
 const router = express.Router();
 
-// @route   GET /api/products
-// @desc    Get all products (used by the Home page)
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find({});
@@ -14,8 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route   GET /api/products/:id
-// @desc    Get a single product by id
+
 router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

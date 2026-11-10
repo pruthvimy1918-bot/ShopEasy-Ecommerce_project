@@ -24,8 +24,7 @@ function Register() {
 
       setSuccess("Account created! Redirecting to login...");
 
-      // Small delay so the user sees the success message before redirecting.
-      setTimeout(() => navigate("/login"), 1200);
+      
     } catch (err) {
       const message =
         err.response?.data?.message || "Registration failed. Please try again.";

@@ -6,7 +6,7 @@ function ProductCard({ product }) {
 
   return (
     <div className="product-card">
-      <img src={product.image} alt={product.name} />
+      <img src={product.image} alt={product.name} loading="lazy" />
       <h3>{product.name}</h3>
       <p>₹{product.price}</p>
       <button onClick={() => addToCart(product)}>Add to Cart</button>

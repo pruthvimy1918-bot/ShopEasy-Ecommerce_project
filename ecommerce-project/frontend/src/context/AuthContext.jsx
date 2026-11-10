@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  // On first load, check if a user/token was saved from a previous session.
+  
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
     return localStorage.getItem("token") || null;
   });
 
-  // Called after a successful login API response.
+  
   const login = (userData, jwtToken) => {
     setUser(userData);
     setToken(jwtToken);
