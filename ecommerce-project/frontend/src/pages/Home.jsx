@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("${import.meta.env.VITE_API_URL}/api/products");
+        const response = await axios.get('${import.meta.env.VITE_API_URL}/api/products');
 
         
         const formatted = response.data.map((product) => ({
