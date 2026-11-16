@@ -16,7 +16,7 @@ function Register() {
     setSuccess("");
 
     try {
-      await axios.post('${import.meta.env.VITE_API_URL}/api/users/register', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/users/registe`, {
         name,
         email,
         password,
